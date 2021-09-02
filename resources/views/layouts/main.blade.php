@@ -153,8 +153,10 @@
         <!--     Include JS   -->
 
         <script src="{{ asset('assets/') }}/js/jquery.js"></script>
+        <script src="{{ asset('assets/') }}/js/simplebar.min.js"></script>
         <script src="{{ asset('assets/') }}/js/uikit.min.js"></script>
         <script src="{{ asset('assets/') }}/js/components/grid.min.js"></script>
+        <script src="{{ asset('assets/') }}/js/components/slideset.min.js"></script>
 
     </body>
 </html>
