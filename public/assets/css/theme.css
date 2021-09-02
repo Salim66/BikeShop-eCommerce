@@ -599,7 +599,7 @@ content: "\f00c";
     text-align: center;
     line-height: 18px;
     color: #fff;
- 
+
 }
 .uk-form input[type=checkbox]:indeterminate:before {
   content: "\f068";
@@ -654,7 +654,7 @@ border-radius: 2px;
 
 .uk-subnav > * > :hover, .uk-subnav > * > :focus{
   color: #FDC830;  /* fallback for old browsers */
- 
+
 }
 
 .uk-button::-moz-focus-inner {
@@ -1077,7 +1077,7 @@ background: linear-gradient(to right, #F37335, #FDC830);
 .uk-nav-side .uk-nav-header {
     color: #ECECEC;
 }
-.uk-navbar li>a {font-family: inherit;} 
+.uk-navbar li>a {font-family: inherit;}
 
 
 
@@ -1094,11 +1094,11 @@ background: linear-gradient(to right, #F37335, #FDC830);
 
 
 .uk-offcanvas-bar {
- 
+
     background: #100f0f;}
 
     .uk-offcanvas-bar .uk-panel-title {
- 
+
   font-size: 12px;}
 
 html .uk-nav.uk-nav-offcanvas>li.uk-active>a {
@@ -1212,7 +1212,7 @@ html .uk-nav.uk-nav-offcanvas>li.uk-active>a {
 
 
 .uk-navbar-secondary {    background: #222121;
-    
+
 }
 .uk-navbar-secondary .uk-navbar-nav>li.uk-active>a {
     background-color: transparent;
@@ -1264,7 +1264,7 @@ color: #fff;
 
 #tm-topbar  .uk-navbar-nav > li > a:hover, .uk-navbar-nav > li > a:active ,  .uk-navbar-nav > li > a:focus {
  background: transparent!important;
- cursor: pointer;   
+ cursor: pointer;
  text-decoration: none;
  opacity: 0.8;
 
@@ -1290,7 +1290,7 @@ color: #fff;
 text-transform: none;
 }
 #tm-header   .uk-button-link:hover,  .uk-button-link:active{
- 
+
    opacity: 0.7;
    text-decoration: none;
 outline: none;
@@ -1299,7 +1299,7 @@ outline: none;
 
 
 
-/* Media Page 
+/* Media Page
  ========================================================================== */
 
 
@@ -1433,8 +1433,8 @@ border-radius: 3px;
 #tm-left-section .uk-nav-comments > li > a {
     font-size: 15px;
     color: #fff;
-   
-} 
+
+}
 #tm-left-section .uk-nav-comments > li>a>div {
    color: gray;
 padding-bottom: 10px;
@@ -1452,7 +1452,7 @@ padding-bottom: 10px;
 #tm-footer .copyright-text {    line-height: 60px;}
 
 #tm-footer .uk-subnav>* {
-   
+
     padding-left: 15px;
 
    }
@@ -1566,6 +1566,34 @@ border-radius: 4px;
   margin-top: 5px;
   margin-right: -15px;
 }
+
+.uk-navbar-flip ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+    text-decoration: none;
+}
+.uk-navbar-flip ul li {
+    float: left;
+    position: relative;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.uk-navbar-flip ul li a {
+    display: block;
+    box-sizing: border-box;
+    text-decoration: none;
+    height: 40px;
+    padding: 0 15px;
+    line-height: 40px;
+    color: #bebdbd;
+    font-size: 15px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: normal;
+    text-decoration: none !important;
+}
+
 /* Nav modifier `uk-nav-search`
  ========================================================================== */
 /*

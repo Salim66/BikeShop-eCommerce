@@ -17,36 +17,22 @@
             <div class="uk-container uk-container-center ">
                 <ul class="uk-navbar-nav uk-hidden-small">
                     <li>
-                        <a href="#"><i class="uk-icon-facebook-square uk-icon-small"></i></a>
+                        <a href="{{ setting('site.Facebook') }}"><i class="uk-icon-facebook-square uk-icon-small"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="uk-icon-twitter-square uk-icon-small"></i></a>
+                        <a href="{{ setting('site.Twitter') }}"><i class="uk-icon-twitter-square uk-icon-small"></i></a>
                     </li>
 
                     <li>
-                        <a href="#"><i class="uk-icon-instagram uk-icon-small"></i></a>
+                        <a href="{{ setting('site.Instagram') }}"><i class="uk-icon-instagram uk-icon-small"></i></a>
                     </li>
                     <li>
-                        <a href="#"><i class="uk-icon-pinterest uk-icon-small"></i></a>
+                        <a href="{{ setting('site.Pinterest') }}"><i class="uk-icon-pinterest uk-icon-small"></i></a>
                     </li>
 
                 </ul>
-                <div class="uk-navbar-flip">
-                    <ul class="uk-navbar-nav uk-hidden-small">
-                        <li>
-                            <a href="index.html">HOME</a>
-                        </li>
-                        <li>
-                            <a href="category.html">All Categories</a>
-                        </li>
-
-                        <li>
-                            <a href="news.html">BLOG</a>
-                        </li>
-                        <li>
-                            <a href="contactus.html">Contact Us</a>
-                        </li>
-                    </ul>
+                <div class="uk-navbar-flip uk-hidden-small">
+                    {{ menu('HOME') }}
                 </div>
             </div>
 
