@@ -27,35 +27,54 @@
                 </ul>
                 <ul class="uk-nav uk-nav-comments uk-nav-side" data-uk-nav="">
                     <li class="uk-nav-header uk-margin-small-bottom">Latest BLOG</li>
+
+                    @foreach($news as $new)
                     <li>
 
-                        <a href="#">
-                            <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" class="uk-scrollspy-init-inview uk-scrollspy-inview uk-animation-fade">
-                            Media title goes here<div> Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam </div></a>
+                        <a href="{{ url('news') }}/{{ $new->slug }}">
+                            <img src="{{ Voyager::image($new->image) }}" alt="Image" class="uk-scrollspy-init-inview uk-scrollspy-inview uk-animation-fade">
+                            {!! Str::words($new->title, 60, '...') !!}<div> {!! htmlspecialchars_decode(Str::words($new->body, 30, '...')) !!} </div></a>
                     </li>
-                    <li><a href="#">Media title goes here<div> Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium </div></a></li>
-                    <li><a href="#">Media title goes here<div> vel illum qui dolorem eum fugiat quo voluptas nulla pariatu </div></a></li>
+                    @endforeach
 
                     <li class="uk-nav-divider"></li>
                 </ul>
                 <div class="uk-panel">
                     <h5 class="uk-panel-header uk-margin-top widget-header">SIMBLE Login</h5>
-                    <form class="uk-form ">
+                    <form class="uk-form" action="{{ route('login') }}" method="POST">
+                        @csrf
                         <fieldset>
                             <div class="uk-form-row">
-                                <input type="text" placeholder="Username" class="uk-width-1-1">
+                                <input id="email" type="email" placeholder="Your E-Mail" class="uk-width-1-1 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="uk-form-row">
-                                <input type="password" placeholder="Password" class="uk-width-1-1">
+                                <input id="password" type="password" placeholder="Password" class="uk-width-1-1 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
                             </div>
 
                             <div class="uk-form-row">
-                                <label><input type="checkbox"> Remember me</label>
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                Remember me
+                                <label class="form-check-label" for="remember">
+                                    {{ __('Remember Me') }}
+                                </label>
                             </div>
                             <div class="uk-form-row">
-                                <button class="uk-button uk-button-success uk-width-1-1">log in</button>
-                                <a href="#" class="uk-button uk-button-link uk-button-small uk-margin-top ">forgot?</a>
-                                <a href="#" class="uk-button uk-button-link uk-button-small uk-margin-top uk-text-muted uk-float-right">Sign up</a>
+                                <button class="uk-button uk-button-success uk-width-1-1" type="submit">log in</button>
+                                <a href="{{ route('password.request') }}" class="uk-button uk-button-link uk-button-small uk-margin-top ">forgot?</a>
+                                <a href="{{ route('register') }}" class="uk-button uk-button-link uk-button-small uk-margin-top uk-text-muted uk-float-right">Sign up</a>
                             </div>
 
                         </fieldset>

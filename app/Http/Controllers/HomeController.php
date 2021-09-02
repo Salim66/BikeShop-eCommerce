@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\PostDec;
 
 class HomeController extends Controller
 {
@@ -25,7 +27,8 @@ class HomeController extends Controller
     public function index()
     {
         $fresh_category = Category::orderBy('created_at', 'DESC')->paginate(5);
-        $all_category = Category::where('order', 1)->orderBy('created_at', 'DESC')->get();
-        return view('home', compact('fresh_category', 'all_category'));
+        $all_category   = Category::where('order', 1)->orderBy('created_at', 'DESC')->get();
+        $news           = Post::orderBy('id', 'DESC')->paginate(3);
+        return view('home', compact('fresh_category', 'all_category', 'news'));
     }
 }
