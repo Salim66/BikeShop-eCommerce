@@ -87,37 +87,20 @@
         <div id="tm-right-section" class="uk-width-large-8-10 uk-width-medium-7-10"  data-uk-scrollspy="{cls:'uk-animation-fade', target:'img'}">
             <div class="uk-grid-width-small-1-3 uk-grid-width-medium-1-4 uk-grid-width-large-1-3" data-uk-grid="{gutter:20}">
 
+                @foreach($products as $product)
+                    @php
+                        $images = $product->image;
+                        $image = json_decode($images);
+                    @endphp
                 <div>
                     <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
+                        <img src="{{ Voyager::image($image[0]) }}" alt="Image" >
                         <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="#"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
+                        <a class="uk-position-cover" href="{{ url('products/') }}/{{ $product->slug }}"></a>
                     </div>
                     <div class="uk-panel">
 
-                        <h5 class="uk-panel-title">Media title goes here</h5>
+                        <h5 class="uk-panel-title">{{ $product->product_name }}</h5>
                         <p>
                             <span class="rating">
                                 <i class="uk-icon-star"></i>
@@ -126,283 +109,12 @@
                                 <i class="uk-icon-star"></i>
                                 <i class="uk-icon-star"></i>
                             </span>
-                            <span class="uk-float-right">2016</span>
+                            <span class="uk-float-right">{{ date('Y', strtotime($product->created_at)) }}</span>
                         </p>
                     </div>
                 </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
+                @endforeach
 
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-overlay uk-overlay-hover">
-                        <img src="{{ asset('assets/') }}/img/placeholder.png" alt="Image" >
-                        <div class="uk-overlay-panel uk-overlay-fade uk-overlay-background  uk-overlay-icon"></div>
-                        <a class="uk-position-cover" href="media.html"></a>
-                    </div>
-                    <div class="uk-panel" >
-
-                        <h5 class="uk-panel-title">Media title goes here</h5>
-                        <p>
-                            <span class="rating">
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
-                            </span>
-                            <span class="uk-float-right">2016</span>
-                        </p>
-                    </div>
-                </div>
             </div>
             <div class="uk-margin-large-top uk-margin-bottom">
                 <ul class="uk-pagination">
