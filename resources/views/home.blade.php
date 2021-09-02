@@ -9,22 +9,18 @@
             <div class="uk-panel">
                 <ul class="uk-nav  uk-nav-side uk-nav-parent-icon uk-margin-bottom" data-uk-nav="">
                     <li class="uk-active">
-                    <a href="#">All Categories</a></li>
-                    <li><a href="#">KONA</a></li>
-                    <li><a href="#">Merida</a></li>
-                    <li><a href="#">Scott</a></li>
-                    <li><a href="#">Accessories</a></li>
+                    <a href="{{ url('category') }}">All Categories</a></li>
+                    @foreach($fresh_category as $category)
+                    <li><a href="{{ url('category') }}/{{ $category->slug }}">{{ $category->name }}</a></li>
+                    @endforeach
+
 
                     <li class="uk-parent ">
                         <a href="#">MORE Categories</a>
                         <ul class="uk-nav-sub">
-                            <li><a href="#">Specialized</a></li>
-                            <li><a href="#">Cannondale</a> </li>
-                            <li><a href="#">TREK</a> </li>
-                            <li><a href="#">Santa Cruz</a> </li>
-                            <li><a href="#">Marin</a> </li>
-                            <li><a href="#">GT</a> </li>
-                            <li><a href="#">Giant</a> </li>
+                            @foreach($all_category as $category)
+                            <li><a href="{{ url('category') }}/{{ $category->slug }}">{{ $category->name }}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li class="uk-nav-divider"></li>

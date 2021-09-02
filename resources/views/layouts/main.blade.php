@@ -57,7 +57,7 @@
                     <div class="uk-navbar-flip uk-visible-small">
                         <a href="#offcanvas" class="uk-navbar-toggle uk-navbar-toggle-alt uk-icon-medium" data-uk-offcanvas></a>
                     </div>
-                    <div class="uk-navbar-brand uk-navbar-center uk-visible-small"><i class="uk-icon-small uk-text-primary uk-margin-small-right uk-icon-play-circle"></i> SIMBLEBIKE</div>
+                    <div class="uk-navbar-brand uk-navbar-center uk-visible-small"><i class="uk-icon-small uk-text-primary uk-margin-small-right uk-icon-play-circle"></i> {{ setting('side.title') }}</div>
                 </div>
             </nav>
             <!--     ./ Header Section   -->
