@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bike SHOP - Simble Bike Shop</title>
+        <title>{{ setting('site.title') }}</title>
         <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/') }}/img/apple-touch-icon.png">
         <!--     Include UIKit CSS   -->
         <link rel="stylesheet" href="{{ asset('assets/') }}/css/uikit.min.css">
@@ -39,7 +39,7 @@
         </nav>
         <nav id="tm-header" class="uk-navbar  ">
             <div class="uk-container uk-container-center ">
-                <a class="uk-navbar-brand uk-hidden-small" href="index.html"><img src="{{ asset('assets/') }}/img/logo.png" width="200" height="120"></a>
+                <a class="uk-navbar-brand uk-hidden-small" href="{{ url('/') }}"><img src="{{ Voyager::image(setting('site.logo')) }}" width="200" height="120"></a>
 
                 <form class="uk-search uk-margin-small-top uk-margin-left uk-hidden-small">
                     <input class="uk-search-field" type="search" placeholder="Search..." autocomplete="off">
@@ -47,8 +47,8 @@
                 </form>
                     <div class="uk-navbar-flip uk-hidden-small">
                         <div class="uk-button-group">
-                            <a class="uk-button uk-button-link uk-button-large" href="signup.html">Sign up</a>
-                            <a class="uk-button uk-button-success uk-button-large uk-margin-left" href="login.html"><i class="uk-icon-lock uk-margin-small-right"></i> Log in</a>
+                            <a class="uk-button uk-button-link uk-button-large" href="{{ route('register') }}">Sign up</a>
+                            <a class="uk-button uk-button-success uk-button-large uk-margin-left" href="{{ route('login') }}"><i class="uk-icon-lock uk-margin-small-right"></i> Log in</a>
                         </div>
 
                     </div>
@@ -73,21 +73,16 @@
         <div class="uk-container-center uk-container">
             <div class="uk-grid">
             <div class="uk-width-medium-3-10"><div class="copyright-text">&copy; 2018
-            <span class="uk-text-bold">SIMBLEBIKE</span> - simble bike store </div></div>
+            <span class="uk-text-bold">{{ setting('site.title') }}</span></div></div>
                 <div class="uk-width-medium-5-10">
-                    <ul class="uk-subnav ">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">FAQ's</a></li>
-                        <li><a href="#">Terms & Conditions</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul></div>
+                   {{ menu('Footer') }}
+                    </div>
                 <div class="uk-width-medium-2-10">
                     <div class=" uk-float-right"><ul class="uk-subnav">
-                        <li><a href="#" class="uk-icon-hover uk-icon-medium uk-icon-facebook-square"></a></li>
-                        <li><a href="#" class="uk-icon-hover uk-icon-medium uk-icon-twitter"></a></li>
-                        <li><a href="#" class="uk-icon-hover uk-icon-medium uk-icon-instagram"></a></li>
-                        <li><a href="#" class="uk-icon-hover uk-icon-medium uk-icon-pinterest"></a></li>
+                        <li><a href="{{ setting('site.Facebook') }}" class="uk-icon-hover uk-icon-medium uk-icon-facebook-square"></a></li>
+                        <li><a href="{{ setting('site.Twitter') }}" class="uk-icon-hover uk-icon-medium uk-icon-twitter"></a></li>
+                        <li><a href="{{ setting('site.Instagram') }}" class="uk-icon-hover uk-icon-medium uk-icon-instagram"></a></li>
+                        <li><a href="{{ setting('site.Pinterest') }}" class="uk-icon-hover uk-icon-medium uk-icon-pinterest"></a></li>
                     </ul></div></div>
                 </div>
             </div>
