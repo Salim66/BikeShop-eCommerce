@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\News;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -13,7 +15,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        $newses = Post::where('id', 'DESC')->paginate(5);
+        return view('news.index', compact('newses'));
     }
 
     /**
