@@ -138,11 +138,16 @@
 
                             <li>
                                 <div class="uk-margin-small-top">
+
+
+                                    @guest
                                     <h3 class="uk-text-contrast uk-margin-top">Product a Review</h3>
                                     <div class="uk-alert uk-alert-warning" data-uk-alert="">
                                         <a href="" class="uk-alert-close uk-close"></a>
                                         <p><i class="uk-icon-exclamation-triangle uk-margin-small-right "></i> Please <a class="uk-text-contrast" href="login.html"> Log in</a> or Sign up to post reviews quicker.</p>
                                     </div>
+                                    @endguest
+
                                     {!! Form::open(['method' => 'POST', 'route' => ['review.store'], 'class' => 'uk-form uk-margin-bottom']) !!}
                                     {!! Form::hidden('porduct_id', $product->id) !!}
                                         <div class="uk-form-row">
@@ -192,21 +197,26 @@
                                 <!--     start Tab Panel 3 (Trailer Section)  -->
 
                                 <li>
+
+                                    @guest
                                     <div class="uk-margin-small-top">
                                     <h3 class="uk-text-contrast uk-margin-top">Book It Now</h3>
                                     <div class="uk-alert uk-alert-warning" data-uk-alert="">
                                         <a href="" class="uk-alert-close uk-close"></a>
                                         <p><i class="uk-icon-exclamation-triangle uk-margin-small-right "></i> Please <a class="uk-text-contrast" href="login.html"> Log in</a> or Sign up to post reviews quicker.</p>
                                     </div>
-                                    <form class="uk-form uk-margin-bottom">
+                                    @endguest
+
+
+                                    {!! Form::open(['method' => 'POST', 'route' => ['book.store'], 'class' => 'uk-form uk-margin-bottom']) !!}
                                         <div class="uk-form-row">
-                                            <textarea class="uk-width-1-1" cols="30" rows="5" placeholder="Type your review here..."></textarea>
+                                            <textarea class="uk-width-1-1" name="book_content" cols="30" rows="5" placeholder="Type your review here..."></textarea>
                                             <p class="uk-form-help-block">The <code>.uk-form-help-block</code> class creates an associated paragraph.</p>
                                         </div>
                                         <div class="uk-form-row">
-                                            <a href="" class="uk-button uk-button-large uk-button-success uk-float-right">Post</a>
+                                            <button type="submit" class="uk-button uk-button-large uk-button-success uk-float-right">Book Now</button>
                                         </div>
-                                    </form>
+                                    {!! Form::close() !!}
                                     </div>
                                 </li>
 

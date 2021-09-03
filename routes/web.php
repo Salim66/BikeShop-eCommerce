@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\NewsController;
@@ -40,3 +41,4 @@ Route::resource('products', ProductController::class);
 Route::resource('review', ReviewController::class);
 Route::resource('wishlist', WishListController::class);
 Route::resource('message', MessageController::class);
+Route::resource('book', BookController::class);
