@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WishListController extends Controller
 {
@@ -34,7 +37,13 @@ class WishListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = Product::findOrFail($request->product_id);
+        Wishlist::create([
+            'user_id'       => Auth::id(),
+            'product_id'    => $request->product_id
+        ]);
+
+        return redirect()->back();
     }
 
     /**

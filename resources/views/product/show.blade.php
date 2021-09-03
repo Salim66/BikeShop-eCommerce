@@ -43,8 +43,13 @@
             </div>
                 </div>
 
-                <a class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-margin-top" href="login.html"><i class="uk-icon-heart uk-margin-small-right"></i> Add to Favourites</a>
-                <a class="uk-button uk-button-link color-y uk-text-muted uk-button-large uk-width-1-1 uk-margin-top" href="login.html"><i class="uk-icon-receiver uk-margin-small-right "></i> Contact Us</a>
+                {!! Form::open(['method' => 'POST', 'route' => ['wishlist.store']]) !!}
+                {!! Form::hidden('product_id', $product->id) !!}
+                    <button class="uk-button uk-button-primary uk-button-large uk-width-1-1 uk-margin-top" type="submit"><i class="uk-icon-heart uk-margin-small-right"></i> Add to Favourites</button>
+                {!! Form::close() !!}
+
+
+                <a class="uk-button uk-button-link color-y uk-text-muted uk-button-large uk-width-1-1 uk-margin-top" href="{{ url('contact') }}"><i class="uk-icon-receiver uk-margin-small-right "></i> Contact Us</a>
             </div>
             <div class="uk-width-medium-5-10">
                 <div class="">
