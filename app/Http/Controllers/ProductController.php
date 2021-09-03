@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -47,7 +48,8 @@ class ProductController extends Controller
     public function show($slug)
     {
         $product = Product::with('category')->where('slug', $slug)->first();
-        return view('product.show', compact('product'));
+        $reviews = Review::where('product_id', $product->id)->get();
+        return view('product.show', compact('product', 'reviews'));
     }
 
     /**

@@ -61,11 +61,39 @@
 
                         <li>
                             <h2 class="uk-text-contrast uk-margin-large-top">{{ $product->product_name }} <span class="rating uk-margin-small-left uk-h4 uk-text-warning">
-                                <i class="uk-icon-star "></i>
+                                @if (isset($reviews) && count($reviews) > 0)
+                                @foreach ($reviews as $review)
+                                    @if($review->reviews_one == 1)
+                                    <i class="uk-icon-star "></i>
+                                    @elseif($review->review_two == 2)
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    @elseif($review->reviews_three == 3)
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    @elseif($review->reviews_four == 4)
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    @elseif($review->reviews_five == 5)
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    <i class="uk-icon-star "></i>
+                                    @endif
+                                @endforeach
+                                @else
+                                    <h2 class="bold m-blouk">Add Rating</h2>
+                                @endif
+
+                                {{-- <i class="uk-icon-star "></i>
                                 <i class="uk-icon-star"></i>
                                 <i class="uk-icon-star"></i>
                                 <i class="uk-icon-star"></i>
-                                <i class="uk-icon-star"></i>
+                                <i class="uk-icon-star"></i> --}}
                             </span></h2>
                             <ul class="uk-subnav uk-subnav-line">
                                 <li ><i class="uk-icon-star uk-margin-small-right"></i> 1</li>
@@ -115,9 +143,8 @@
                                         <a href="" class="uk-alert-close uk-close"></a>
                                         <p><i class="uk-icon-exclamation-triangle uk-margin-small-right "></i> Please <a class="uk-text-contrast" href="login.html"> Log in</a> or Sign up to post reviews quicker.</p>
                                     </div>
-                                    {!! Form::open(['method' => 'POST', 'route' => ['review.store']]) !!}
+                                    {!! Form::open(['method' => 'POST', 'route' => ['review.store'], 'class' => 'uk-form uk-margin-bottom']) !!}
                                     {!! Form::hidden('porduct_id', $product->id) !!}
-                                    <form class="uk-form uk-margin-bottom">
                                         <div class="uk-form-row">
                                             <textarea class="uk-width-1-1" name="reviews_content" cols="30" rows="5" placeholder="Type your review here..."></textarea>
                                             <p class="uk-form-help-block">The <code>.uk-form-help-block</code> class creates an associated paragraph.</p>
@@ -140,55 +167,22 @@
 
                                     <div  class="uk-scrollable-box uk-responsive-width " >
                                         <ul class="uk-comment-list uk-margin-top" >
-                                            <li>
-                                                <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
-                                                    <header class="uk-comment-header">
-                                                        <img class="uk-comment-avatar uk-border-circle" src="assets/img/avatar3.jpg" width="50" height="50" alt="">
-                                                        <h4 class="uk-comment-title">@movielover</h4>
-                                                        <div class="uk-comment-meta">2 days ago </div>
-                                                    </header>
-                                                    <div class="uk-comment-body">
-                                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                                                    </div>
-                                                </article>
-                                            </li>
 
+                                            @foreach($product->reviews as $review)
                                             <li>
                                                 <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
                                                     <header class="uk-comment-header">
-                                                        <img class="uk-comment-avatar uk-border-circle" src="assets/img/avatar3.jpg" width="50" height="50" alt="">
-                                                        <h4 class="uk-comment-title">@movielover</h4>
-                                                        <div class="uk-comment-meta">7 days ago </div>
+                                                        <img class="uk-comment-avatar uk-border-circle" src="{{ URL::to(Voyager::image($review->user->avatar)) }}" width="50" height="50" alt="">
+                                                        <h4 class="uk-comment-title">{{ $review->user->name }}</h4>
+                                                        <div class="uk-comment-meta">{{ $review->created_at->diffForHumans() }} </div>
                                                     </header>
                                                     <div class="uk-comment-body">
-                                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+                                                        <p>{{ $review->reviews_content }}</p>
                                                     </div>
                                                 </article>
                                             </li>
-                                            <li>
-                                                <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
-                                                    <header class="uk-comment-header">
-                                                        <img class="uk-comment-avatar uk-border-circle" src="assets/img/avatar2.jpg" width="50" height="50" alt="">
-                                                        <h4 class="uk-comment-title">@movielover</h4>
-                                                        <div class="uk-comment-meta">84 days ago </div>
-                                                    </header>
-                                                    <div class="uk-comment-body">
-                                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                                                    </div>
-                                                </article>
-                                            </li>
-                                            <li>
-                                                <article class="uk-comment uk-panel uk-panel-space uk-panel-box-secondary">
-                                                    <header class="uk-comment-header">
-                                                        <img class="uk-comment-avatar uk-border-circle" src="assets/img/avatar1.jpg" width="50" height="50" alt="">
-                                                        <h4 class="uk-comment-title">@movielover</h4>
-                                                        <div class="uk-comment-meta">3 days ago </div>
-                                                    </header>
-                                                    <div class="uk-comment-body">
-                                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                                                    </div>
-                                                </article>
-                                            </li>
+                                            @endforeach
+
                                         </ul>
                                     </div>
                                 </li>
