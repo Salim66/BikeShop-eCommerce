@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReviewRequest;
+use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReviewController extends Controller
 {
@@ -32,9 +36,21 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ReviewRequest $request)
     {
-        //
+        $product = Product::findOrFail($request->porduct_id);
+        Review::create([
+            'user_id'           => Auth::id(),
+            'product_id'        => $product->id,
+            'reviews_content'   => $request->reviews_content,
+            'reviews_one'       => $request->reviews_one,
+            'reviews_two'       => $request->reviews_two,
+            'reviews_three'     => $request->reviews_three,
+            'reviews_four'      => $request->reviews_four,
+            'reviews_five'      => $request->reviews_five,
+        ]);
+
+        return redirect()->route('products.show', $product->slug);
     }
 
     /**
